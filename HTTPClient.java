@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 
-public class Client {
+public class HTTPClient {
   public static void main(String[] args) throws Exception {
   	String server_ip = "172.16.5.162";
   	String downloadFileName = "4K.jpg";
@@ -26,8 +26,7 @@ public class Client {
     
     
 	    // send an HTTP request to download file '4K.jpg' stored on the server
-    	// long t_begin = System.currentTimeMillis();
-
+    
     	// prepare GET request message
     	request_msg += "GET /" + downloadFileName + " HTTP/1.1\r\n";
     	request_msg += "Host: " + server_ip + "\r\n";
@@ -68,9 +67,7 @@ public class Client {
 	    outFile.flush();
 	    outFile.close();
 	    System.out.println("Requested file saved to: " + downloadFileName);
-    	// long t_end = System.currentTimeMillis();
-    	// System.out.printf("%d %d %.2f\n",content_len, t_end-t_begin, content_len*8.0/(t_end - t_begin)/1000.0);
-    
+    	
    socket.close();
   }
   
